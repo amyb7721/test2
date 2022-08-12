@@ -37,12 +37,8 @@ const cart = [
 
 
 
-const summedPrice = cart.reduce((temp, x) => { 
-    return temp + x.price;
-  }, 0);
-
-  console.log(summedPrice); 
-
+const summedPrice = cart.reduce((acc, cur) => acc + cur.price, 0)
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -62,14 +58,10 @@ const summedPrice = cart.reduce((temp, x) => {
 //CODE HERE
 
 function calcFinalPrice(cartTotal, couponValue, tax) {
-    
-    const taxAmount = cartTotal * tax;
-    const totalWithTax = cartTotal + taxAmount;
-    const finalTotal = totalWithTax - couponValue;
-    return finalTotal;
+    return cartTotal + (cartTotal * tax) - couponValue
   }
   
-  console.log(calcFinalPrice(.97))
+  console.log(calcFinalPrice(10, 2, .1))
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -92,10 +84,13 @@ function calcFinalPrice(cartTotal, couponValue, tax) {
 
 /*
     TEXT ANSWER HERE
-First and last name: becuase the store needs to know who it is for.
-Email: the store needs to conact them.
-Number: the store needs a second way to reach them.
-Address: the store needs to know hwere to send the order to. 
+Properties:
+firstName - type string - Store needs the customers name and a string can store many characters 
+lastName - type string - Store needs the customers name and a string can store many characters 
+streetAdress - type string -  Store needs to know what street you are on and a string can store many characters 
+zipCop - type number - Store needs the zip code to ship it and a zipcode is all numbers
+HaveEmail- type boolean - store needs to send marketing emails
+
 */
 
 /*
@@ -104,3 +99,11 @@ Address: the store needs to know hwere to send the order to.
 */
 
 //CODE HERE
+
+const customer = {
+    firstName: 'Amy',
+    lastName: 'Bernard',
+    streetAdress: '221 Meyer St',
+    zipcode: 70508,
+    HaveEmail: false, 
+}
